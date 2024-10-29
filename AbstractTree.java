@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -297,6 +298,19 @@ public abstract class AbstractTree<E> implements Tree<E> {
     {
         ArrayList<Position<E>> positions = new ArrayList<>();
         fillTheAncestorsList(this, p, positions);
+        return positions;
+    }
+
+    public LinkedList<Position<E>> path(Position<E> p1, Position<E> p2)
+    {
+        LinkedList<Position<E>> positions = new LinkedList<>();
+        for(Position<E> pos: this.ancestors(p2))
+            positions.addLast(pos);
+        // R, P2, P2
+        positions.removeFirst();
+        for(Position<E> pos: this.ancestors(p1))
+            positions.addFirst(pos);
+
         return positions;
     }
 }
