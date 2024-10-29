@@ -294,6 +294,7 @@ public abstract class AbstractTree<E> implements Tree<E> {
         arraylist.addLast(p);
     }
 
+    // Helper methods weren't forbidden
     public ArrayList<Position<E>> ancestors (Position<E> p)
     {
         ArrayList<Position<E>> positions = new ArrayList<>();
