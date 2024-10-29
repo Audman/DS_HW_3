@@ -232,9 +232,12 @@ public class PathSum<E>
             if (leftPathSum != null)
                 return leftPathSum;
         }
+
+        // The node is internal, and there is no valid sum on the left side
         if (tree.right(root) != null)
+            // I could check if this ⬇️ value is null, but if not it will return null anyway
             return PathSum(k, tree, tree.right(root), sum + root.getElement());
-        
+
         return null;
     }
 }
