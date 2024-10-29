@@ -301,12 +301,16 @@ public abstract class AbstractTree<E> implements Tree<E> {
         return positions;
     }
 
+    /*
+    * Iterable: check
+    * Path connects them: check
+    */
     public LinkedList<Position<E>> path(Position<E> p1, Position<E> p2)
     {
         LinkedList<Position<E>> positions = new LinkedList<>();
         for(Position<E> pos: this.ancestors(p2))
             positions.addLast(pos);
-        // R, P2, P2
+        // R, P2, P2, ...
         positions.removeFirst();
         for(Position<E> pos: this.ancestors(p1))
             positions.addFirst(pos);
